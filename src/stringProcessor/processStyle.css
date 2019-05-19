@@ -1,0 +1,275 @@
+
+/* 
+    Created on : 04 Apr 2017, 7:40:26 AM
+    Author     : Jelo
+*/
+#header, #result-tab, #tool-tab, #method-tab{
+    -fx-background-color: rgb(7, 40, 56);     
+
+}
+
+#framework-tab{
+    -fx-background-color: rgb(244, 244, 244);
+    -fx-border-insets:20px;
+    -fx-background-insets:20px;
+    -fx-padding:40 40 0 40;
+}
+
+
+#archdev-tab{
+    -fx-background-color: rgb(244, 244, 244);
+    -fx-border-insets:20px;
+    -fx-background-insets:20px;
+    -fx-padding:0;
+}
+
+#arch-dev-box{
+    -fx-padding:10; 
+}
+#arch-dev-logo-text{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.htext{
+    -fx-fill: white;
+    -fx-font-size: 14pt;
+}
+
+.htextTitle{
+    -fx-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+#textarea{
+    -fx-font-size: 15pt;
+}
+
+.htext:hover{
+    -fx-cursor: hand;
+}
+
+
+.tab *.tab-label{
+    -fx-rotate: 90;
+}
+
+.tab-pane .tab-header-area{
+    -fx-padding: 0px;
+}
+
+.tab-pane:focused .tab:selected .focus-indicator {
+    -fx-border-style: hidden hidden hidden hidden; 
+}
+
+#nav-tab-pane .tab:selected{
+    -fx-background-color: rgb(196, 196, 196);  
+    -fx-border-color: rgb(162, 179, 188);
+}
+
+
+#nav-tab-pane .tab{ 
+    -fx-border-style: hidden hidden hidden solid;
+    -fx-border-color: rgb(162, 179, 188);
+    -fx-border-width: 1;
+    -fx-background-color: rgb(220, 228, 229);
+    -fx-padding: 3em 0.5em 3em 0.5em;
+}
+#nav-tab-pane .tab-header-area .tab-header-background{
+    -fx-opacity: 1;
+}
+
+#nav-tab-pane{
+    -fx-tab-min-width: 90;
+    -fx-tab-min-height: 110;
+}
+
+
+#inner-tab-pane{
+    -fx-tab-min-width: 100px;
+    -fx-tab-min-height: 46px;
+    -fx-padding: 0;
+}
+
+#bulkanalysis-tab-pane{
+    -fx-tab-min-width: 180px;
+    -fx-tab-min-height: 46px;
+    -fx-padding: 0;
+}
+
+#inner-tab-pane .tab, #bulkanalysis-tab-pane .tab{ 
+    -fx-background-color: rgb(237, 255, 240);
+    -fx-font-size: 13px;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-border-width: 1;
+    -fx-padding: 0;
+}
+
+#bulkanalysis-tab-pane .tab{ 
+    -fx-padding: 0 20 0 20;
+}
+
+#inner-tab-pane  .tab:selected, #bulkanalysis-tab-pane  .tab:selected {
+    -fx-background-insets: 0;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-background-color: rgb(220, 242, 224);
+    -fx-border-color: rgb(15, 104, 30);
+    -fx-border-width: 3;
+}
+
+#inner-tab-pane .tab *.tab-label, #bulkanalysis-tab-pane .tab *.tab-label{
+    -fx-rotate: 0;
+}
+
+#inner-tab-pane .tab-header-area .headers-region, #bulkanalysis-tab-pane .tab-header-area .headers-region{
+    -fx-font-size: 13px;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-border-width: 2;
+
+}
+
+#inner-tab-pane .tab:hover, #bulkanalysis-tab-pane .tab:hover {
+    -fx-background-color: rgb(225, 239, 227);
+}
+
+#inner-tab-pane .tab-header-area .tab-header-background, #bulkanalysis-tab-pane .tab-header-area .tab-header-background{
+    -fx-opacity: 0; 
+}
+
+#inner-tab-pane .tab-content-area, #bulkanalysis-tab-pane .tab-content-area,  #tab-content, #opt-footer{
+    -fx-padding: 10;
+}
+
+.button{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+    -fx-padding: 10 20 10 20;
+}
+
+.operations{
+
+    -fx-font-size: 14px;
+    -fx-text-fill: rgb(7, 40, 56);
+
+}
+
+.radio-button .radio {
+    -fx-padding: 4px;
+}
+
+#bulk-text{
+    -fx-font-size: 15pt;
+    -fx-fill: green;
+    -fx-padding: 0;
+}
+
+
+#divider{
+    -fx-border-style: hidden hidden solid hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 0 0 10 0;
+}
+
+#home-result-output-text{
+    -fx-font-size: 12pt;
+    -fx-text-fill: lightgreen;
+    -fx-padding: 0;
+}
+
+#vertical-divider{
+    -fx-border-style: hidden solid hidden hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 0 0 10 0;
+}
+
+#bottom-vertical-divider{
+    -fx-border-style: hidden solid hidden hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 0 0 10 0;
+}
+
+#framework-string-one{
+    -fx-font-size: 13pt;
+    -fx-text-fill: green;
+    -fx-padding: 0 0 10 0;
+}
+
+#inp-text{
+    -fx-font-size: 17pt;
+    -fx-text-fill: green;
+    -fx-padding: 30 0 30 0;
+}
+
+#search{
+    -fx-font-size: 12pt;
+    -fx-padding: 10 0 10 0;
+}
+
+#select-choice{
+    -fx-font-size: 13pt;
+    -fx-padding: 20 0 0 0;
+    -fx-font-weight: bold;
+}
+
+#result-text{
+    -fx-font-size: 13pt;
+    -fx-text-fill: lightgoldenrodyellow;
+    -fx-padding: 0;
+}
+#result-name-text{
+    -fx-font-size: 16pt;
+    -fx-text-fill: lightgreen;
+    -fx-padding: 0;
+}
+
+#result-method-text{
+    -fx-font-size: 13pt;
+    -fx-text-fill: lightblue;
+    -fx-padding: 0;
+}
+
+#result-divider{
+    -fx-border-style: hidden hidden solid hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 0 0 0 0;
+}
+#divider2, #settings{
+    -fx-border-style: hidden hidden solid hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 10;
+}
+
+#result-button{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-size: 13;
+    -fx-padding: 8 15 8 15;
+}
+
+
+#flow-pane{
+    -fx-padding: 10 0 0 0;
+}
+
+.radio-button > .radio > .dot{
+    -fx-padding: 2px;
+}
+
+#opt-footer{
+    -fx-border-style: solid hidden hidden hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+}
+
+#footer{
+    -fx-padding: 20 0 10 10;
+}

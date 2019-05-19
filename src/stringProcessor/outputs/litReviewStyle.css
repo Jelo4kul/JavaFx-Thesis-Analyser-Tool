@@ -1,0 +1,78 @@
+
+/* 
+    Created on : 28 Jun 2018, 5:32:40 AM
+    Author     : Jelo
+*/
+#article{
+    -fx-font-size: 13pt;
+    -fx-text-fill: green;
+    -fx-padding: 0 0 10 0;
+    -fx-font-style:oblique
+}
+#folder{
+    -fx-font-size: 11pt;
+    -fx-text-fill: green;
+    -fx-padding: 0;
+}
+
+#article-id{
+    -fx-padding: 5 10 5 10;
+    -fx-background-color: rgb(7, 40, 56);
+    -fx-text-fill: white;
+    -fx-font-size: 12pt;
+}
+
+#lit-review-output{
+    -fx-font-size: 12pt;
+}
+
+#researchArea-text{
+     -fx-font-size: 12pt;
+     -fx-font-weight: bold;
+}
+
+#header-layout{
+    -fx-padding: 20;
+}
+
+#button{
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-size: 13;
+    -fx-padding: 8 15 8 15;
+}
+
+#base-container{
+    -fx-padding: 20px;
+    -fx-background-insets: 10px;
+    -fx-border-insets: 10px
+}
+
+#divider{
+    -fx-border-style: hidden hidden solid hidden;    
+    -fx-border-width: 1;
+    -fx-border-color: rgb(206, 224, 223);
+    -fx-padding: 0;
+}
+
+#header-text{
+    -fx-font-size: 16pt;
+    -fx-fill: green;
+    -fx-padding: 20px; 
+}
+
+#number{
+      -fx-font-size: 13pt;
+    -fx-text-fill: green;
+    -fx-padding: 0 0 10 0;
+    
+}
+
+#row-layout{
+        -fx-padding: 30; 
+}
+
+#folder-layout{
+        -fx-padding: 15; 
+}
+

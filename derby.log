@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Nov 28 12:19:46 WAT 2018:
+Booting Derby (version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631)) instance a816c00e-0167-5a0b-de0e-00000654ebc8 
+on database directory classpath:stringProcessor/database/thesis in READ ONLY mode with class loader sun.misc.Launcher$AppClassLoader@55f96302. 
+Loaded from file:/C:/Users/Jelo/Documents/NetBeansProjects/thesis.stringProcessing/dist/run1580559823/lib/derby.jar.
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_77-b03
+user.dir=C:\Users\Jelo\Documents\NetBeansProjects\thesis.stringProcessing
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

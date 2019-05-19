@@ -1,0 +1,207 @@
+<html><head><title> Example Simulation Models</title></head><body><b><center><font size=4>V. Example Simulation Models </font></center></b>
+
+<p><b><i>A. Introduction to Arena Simulation [SS]</i></b><p>
+
+Simulation is one of the most powerful analysis tools available to those responsible for the design and operation of complex processes or systems. In an increasingly competitive world, simulation has become a very powerful tool for the planning, design, and control of systems. No longer regarded as the approach of “last resort” it is today viewed as an indispensable problem-solving methodology for engineers, designers, and managers [7].
+<p> 
+This article presents some important features of the ARENA 3.0 software. This would help the beginner to understand the basic concepts necessary for building a simple model.  This in turn could provide a springboard for building up complex real world models.
+<p>
+<b>A Simple Simulation Model</b>
+<p>
+Let us consider a simple simulation model. Suppose we have a single-channel queuing (waiting line) system, such as a checkout counter in a drugstore. The time between the arrival of customers is uniformly distributed from 1 to 10 minutes. This is obtained by means of a spinner dial (such as those used in some board games). The time required to service a customer be uniformly distributed between 1 to 6 minutes. A single die can be used to generate service times. The system has two random variables and if a large number of readings need to be generated, a computer is needed for generating the random variables and for doing the bookkeeping. To simulate real-world systems adequately, we must also be able to generate behavioral characteristics that are realistic. For example, the time between arrivals and the service times generated must allow for something other than uniform distribution rounded to the nearest whole number [7].
+<p>
+<b>Distribution Selection</b>
+<p>
+To test the compatibility of a set of observed frequencies with some theoretical frequency, we must first identify the theoretical distribution we wish to try. If we are dealing with a discrete variable, we record the frequency occurring within which each individual value occurs. If the variable is continuous, we break the range of values into equal interval or class. The relative frequency in each interval is then the observed frequency count in each class divided by the total number of data points [7].
+<p>
+After we have obtained a relative frequency distribution, selecting the possible probability distribution from which it may be derived becomes a matter of judge and experience [7].
+<p>
+Some examples of continuous distributions are uniform, triangular, negative exponential, Erlang, gamma, Weibull, normal, lognormal, and beta. Some examples of discrete distributions are discrete uniform, binomial, geometric, and Poisson [7].
+
+<p>
+<b>Goodness-of-Fit Test</b>
+<p>
+Once we have selected a distribution (based on visual inspection and theoretical grounds), we then need to assess the quality of our fit. This can be done by using formal statistical tests or by employing a simple graphical method in which an overlay of the theoretical distribution is displayed on a histogram of the data and a visual assessment is made to determine the quality of the fit. A goodness-of-fit test attempts to measure and evaluate the deviation of the sample distribution from the theoretical. Examples of these tests include both the Chi-Square (x^2) and the Kolmogrov-Smirnov tests [7].
+<p>
+<b>Basic Modeling Concepts</b> 
+<p>
+IN ARENA3.0 environment, the word "entity" is a generic term used to denote any person, object, or thing- whose movement through the system causes change in the state of the system. Every entity possesses some unique characteristics referred to as <i> attributes </i>. For example in a factory a job may have attributes specifying the part number, due date, and priority of the job. The term <i> variables</i>, refers to the set of changeable values characterizing the components of the system as a whole. Example of a variable is TNOW. It specifies the current value of the simulated time [8].
+<p>
+In the ARENA3.0 modeling framework, there is a fundamental distinction between the <i> Model</i>  and the <i> Experiment</i>. The <i> model</i> is a functional description of the system’s components and their interactions. The <i> experiment</i>  defines the experimental conditions under which the model is exercised to generate specific output data. An ARENA3.0 simulation program generates both a model and corresponding experiments [8].
+<p>
+Processes are modeled in SIMAN by using a block diagram. A block diagram is a flow graph depicting the process through which the entities in the system move. The block diagram is constructed as a sequence of blocks, the shapes and names of which indicate their general function. The experimental section of the program consists of elements which, are specified interactively in the Arena modeling environment [8]. 
+
+<p>
+<b>Blocks</b>
+<br>The following section describes in brief the different blocks used by the simulation team.
+<p>
+<b>CREATE:</b> It is one of the several mechanisms by which an entity (product) can enter into the model. It is typically used to model arrival processes in which entities sequentially enter the model according to a specified pattern. The operands of Create block are <i> Batch size</i>  indicating the number of entities arriving simultaneously in the model, <i> Offset time </i> specifying the time between the start of simulation and the arrival of the first entity, <i> Interval</i>  specifying the delay between the arrivals at successive points after the first. The <i> Maximum Batches </i> operand specifies the maximum number of arrival points [8].
+<p>
+<b>QUEUE:</b> It provides waiting space for the entities whose movements through the model have been suspended based on the system’s status. An example is a work piece
+Waiting in turn to be processed on a busy machine. The operands of queue block are <i> Queue ID</i>  indicating the name of the queue, <i> Capacity </i> of the queue and the <i> Balk label </i> which is used to direct the entity to an alternative block other than the seize block [8]. 
+<p>
+<b>SEIZE:</b> It is used in conjunction with the queue block and is used to model the status delays. When a resource becomes idle the entity from the previous queue block enters the seize block and seizes the resource. The state of the resource now changes from idle to busy. The operands of seize block include <i> priority</i>  for the allocation of entities waiting for the same resource. Priority is given to those entities, which have been waiting the longest. The <i> Resource ID</i>  indicating the resource requested by the waiting entity and the <i> number of units</i>  of the resource requested by the entity [8].         
+<p>
+<b>DELAY:</b> Once an entity has been allocated the necessary resources, it typically engages in time-consuming activities, such as setup, machining, inspection etc. In ARENA3.0, delays such as these can be modeled by using the DELAY block. The operands of the delay block are the <i> duration of the delay</i>  and the <i> storage ID</i>, which provides statistics on the number of entities residing in one or more DELAY blocks [8].
+<p>
+<b>RELEASE:</b> When an activity that requires resources has been completed, the entity possessing the resources typically releases them so that they can be allocated to entities either currently waiting or yet to arrive at QUEUE-SEIZE blocks. Operands of seize block are <i> Resource ID</i>  indicating the resource just released and the <i> Quantity of entities</i>  to release simultaneously [8].
+<p>
+<b>COUNT:</b> It is used to count the number of occurrences of some event, e.g., work-pieces entering the system, exiting the system or sent through rework. The operands of the Count block include the <i> Counter ID </i> (name of the counter) and the <i> Counter increment</i>  for which, a default value of one is assumed [8].
+<p>
+<b>DISPOSE:</b> It provides a mechanism for modeling the departure of entities from the system. The dispose block has a single entry point, no operands, and no exit points. All entities entering the dispose block are terminated from the model [8].
+<p>
+<b>GROUP:</b> It is commonly used to group a set of entities having a particular set characteristics. A representative entity is created and it moves through the model and behaves, as though, it is a single entity. The most important operand of group block is the <i> quantity to group</i>. This is commonly used to simulate a manufacturing scenario in which a set of parts corresponding to a particular product need to be grouped before they can be assembled by the machine [8].
+<p>
+<b>SPLIT:</b> The entities, which had been grouped, need to be split or de-grouped before they are disposed. The split block is used for the same. The departing entities have the original attribute values they had when the entity set was formed [8].
+<p>
+<b>ASSIGN:</b> Whenever attributes and variables are used in a model they need to be assigned values during model execution. This is made possible by means of the assign block. The operand of the block is <i> Variable or Attribute = Value</i>. Each time an entity passes through the ASSIGN block, the value on the right hand side of the equals sign is copied on to the variable or attribute on the left hand side of the equation. Example when the entities pass through the CREATE block they can be assigned a job type of 1,2,3 with a certain probability of the entity belonging to each type [8].
+<p>
+<b>BRANCH:</b> This is used to direct the entities to different sections of the model depending upon the condition of true or false. The operands of the branch block are the following:
+<ol type=a>
+<li><i> Maximum Number of Branches</i>  (it is usually 1).
+<li><i> With</i>  (indicates the probability and the label to which the entity needs to be directed).
+<li><i> Else</i>  (indicates the label to which the entity needs to be directed if the else condition becomes true).
+<li><i> Always </i> (whatever the condition the entity needs to be sent to a specific label).  
+ </ol>
+As described earlier, <i> experiment</i>  defines the experimental conditions under which the model is exercised to generate specific output data. The length of the simulation run, the number of replications of the simulation, the characteristics of resources and queues, etc all come under experimental conditions. Using special data records called elements the experiment is developed. It is generally preferable to enter the experiment before entering the model. By first defining the objects such as resources in the experiment, the drop down list can then be selected when entering the model graphically [8].
+ 
+
+<p><b>Elements</b>
+<br>The following section describes in brief the various elements used by the simulation team in developing the project.<p>
+<b>PROJECT:</b> It is used to describe the simulation project used by ARENA3.0 in labeling the SIMAN summary report. The program automatically generates this report at the end of each replication if it is defined under the experimental conditions. The operands of the element include <i> Project Title, Analyst Name, Date, Summary Report </i> (yes/ no). Maximum of 24 characters can be entered in the first two fields [8].
+<p>
+<b>QUEUES:</b> It defines the information of the model’s queues. The operands of the queue element are <i> Number </i> (need not be defined), </i> Name of the queue, Ranking Criterion </i>. The following criterion are used:
+<ol type=a>
+<li>FIFO (First-in, First-out): Entities wait in the queue in the order in which they arrive.
+<li>LIFO (Last-in, First-out): Entities are ranked in the reverse order of their entry into the queue.
+<li>LVF (Attribute ID): The queue is ordered by increasing values of the specified attribute with ties broken by the FIFO rule.
+<li>HVF (Attribute ID): Queue is ordered by the decreasing values of the specified attribute with ties broken by the FIFO rule [8]. 
+</ol>
+<b>RESOURCES:</b> It defines the information about the model’s resources. The operands include <i> Number</i>  (need not be defined), <i> Name of the resource, Capacity, </i> which defines the number of identical and interchangeable units that initially exist for the resource. It defaults to 1 [8].
+<p>
+<b>COUNTERS:</b> This element provides descriptive information of the counters included in the model section. The operands included in the element are Number (need not be defined), <i> Name of the counter, Limit. </i>  The last operand specifies a certain value which when exceeded causes the program to terminate [8].
+<p>
+<b>REPLICATE:</b> It defines the <i> Number of Replications</i>  for which the simulation is to be run, the <i> Beginning Time</i>  of the first replication and the <i> Replication Length, </i>  which defines the duration of each simulation replication [8]. 
+<p>
+<b>ATTRIBUTES:</b> and <b>VARIABLES:</b> These elements provide general information about the symbolic names and properties of the attributes and variables. The operands of the elements include <i> Number</i>  (optional), <i> Name (index), Initial Values. </i>  The second operand is used to specify an array with certain index values. Each element in the array has a unique index value, which is stored in a common array name. The third variable is used to initialize a variable to a certain value [8]. 
+<p>
+<b>STATIONS:</b> It defines the information of the stations used in the model. The operands include <i> Number</i>  (optional), <i> Name</i>  of the station [8]. 
+<p>
+<b>SETS:</b> It defines a group of similar elements that may be referenced by a common name and set index. The elements that make up the set are referred to as the members of the set. Typical sets would contain groups of resources, queues, stations, pictures, counters, tallies, expressions, etc. The operands of the element are <i> Number</i>  (optional), <i> Name</i>  of the Set and the <i> Members </i> of the set. The last operand can be referenced by the set name. The function used by the Simulation team in building the manufacturing model was <i> MemIdx (Setname, Member Name). </i> This function returns the index number of a specific member in the set. The member name was the first station at which the entity entered the model [8].  
+<p>
+<b>SCHEDULES:</b> This is used to change the capacity of the resource over time. The resource follows a time dependent schedule as specified in the element. For example, the resource is idle for the first 30 minutes of the simulation run. During this period it has a capacity of 0. During the next 30 minutes of the run the resource can have a capacity of 1. The operands of the element include <i> Identifier</i>, which is fed into the resource block following the schedule and <i> Resource Capacity</i>  and the <i> Capacity Duration, </i>  which specifies the capacity of the resource during a certain time period [8]. 
+<p>
+<b>SEQUENCES:</b> It defines the sequence in which an entity visits the stations. The operands include <i> Number </i> (optional), <i> Name</i>  of the sequence, <i> Station ID </i> and the <i> Assignments </i> (duration of delay, assignment of picture or job type, etc.) at each station [8].   
+<p>
+<b>Arena3.0 Verification Tools Used by the Simulation Team</b>
+<ol type=a>
+<li><b>RUN CONTROLLER:</b> It allows the user to step through the execution of the model by exercising complete control from the keyboard or the mouse. The entity can be moved through one or more blocks, its value can be examined by using simple commands. The execution can also be suspended at critical points or when specified variables reach defined values. The run controller also provides access to a model’s source statements, which can be listed during execution [8]. 
+ <p>
+<li><b>ANIMATION:</b> Successful verification depends on one’s ability to comprehend the complex interactions among the many components within a model. Of all the techniques available to help in the verification process, animation is without a doubt the single, most powerful aid available. Only animation can present a dynamically moving picture of the many interactions taking place within the simulation. The animation displays the same information for all model components simultaneously [8].  
+</ol>
+This article has provided a brief insight as to how the simulation team has used the ARENA3.0 simulation tool to develop the models. This would enable the beginner to know the various blocks and elements used by the team and serve as a guide for understanding the manufacturing processes. We suggest that those people who do not have any exposure to simulation read this article before the presentation by the simulation team [8]. 
+<p><a href=contents.html> Back to Table of Contents</a>
+
+<p>
+<p>&nbsp;<a name=computer></a>
+<p>&nbsp;<b><i>B. Computer Manufacturing Model [LR]</i></b><p>The computer manufacturing model differs from the automobile model with regards to detail, layout, and input data. Less detailed than the automobile manufacturing model in terms of specifying individual operations in the assembly stage, the computer manufacturing model simulates five main stages in assembling and testing computers. These processes are: <ol type=1><li>Assembly<li>Electrical testing<li>Software loading<li>Final testing and inspection<li>Packaging</ol>Rather than having a single flow line as in the automobile model, the layout of the computer model consists of two repetitive parallel lines, each line consisting of the five main stages as shown in the following figure: <p><center> <b>Parallel Lines in Computer Manufacturing Model</b></center><p><center><IMG SRC="stages.jpg" HEIGHT=250 WIDTH=750></center>
+
+<p>Each line is analagous to a <a href=http://www.uh.edu/~gsubrama/Cellmanuf.html>work cell</a> in that material flows continuously through each stage with minimal in-process inventories. A complete product is manufactured at each cell, which uses equipment for each stage of the production process.
+
+<p>As described in the Manufacturing Team's web site, a <a href=http://www.uh.edu/~gsubrama/staticproductlayout.html>typical manufacturing plant</a> consists of four main components: <ul><li>Receiving<li>Production Processing<li>Packaging, and<li>Shipping</ul>These components are incorporated in the computer manufacturing model in the following manner:<p><i>Receiving</i><br>Orders of varying sizes arrive in intervals and are processed as first-in-first-out. For simplification, all requested computers in a particular order have the same configuration. The configuration consists of processor type, number of boards, and monitor type. The model specifies three types of processors, two types of boards, and two types of monitors. These attributes are probalistically assigned to each order with 12 configurations possible. Orders are sent to the least busy line but wait to be filled until the assembly stage is free. The model assumes that all raw materials for the assembly stage are readily available and are sufficient to fill each order. The logic for order processing in Arena is shown below.<p><center> <b>Order Processing Logic in Computer Manufacturing Model</b></center><p><center><IMG SRC="OrderProc.jpg" HEIGHT=500 WIDTH=750></center><p><i>Production Processing and Packaging</i><br>As mentioned previously, the production layout consists of two repetitive parallel lines.  Orders are fed to each line, which consists of five stages. The processing times for each stage are: assembly - 12 minutes, electrical wiring test - 5 minutes, load software - 15 minutes, final test and inspection - 5 minutes, and packaging - 5 minutes. The utilization rate of the assembly stage is driven by the nature of the orders arriving: the size of each order and the time between orders. Queue formations and potential bottlenecks may occur at the assembly and loading software stages, where the processing times are high. These problems may be addressed by increasing the capacity of the resources, such as adding a third assembly stage or loading software for multiple computers at a time. Packaging involves selecting the appropriate monitor for the order and sending the packages to the shipping area.<p><i>Shipping</i><br>Although the computer model does not specifically simulate shipping activities, the model is flexible enough to have this component included at a later date. One consideration may involve combining packaging and shipping activities into one area.
+
+<p>The input data for the computer manufacturing model was not obtained from actual existing data from any particular computer manufacturer. Instead educated guesses were made for order sizes and processing times. Although one of the tenets in developing any simulation model involves obtaining actual data, this requirement was lifted in order to show a simple manufacturing model that utilizes parallel manunfacturing cells, and how the sizes, arrival, and number of orders affect assembly utilization rates.
+
+<p><a href=contents.html> Back to Table of Contents</a>
+
+
+<p>
+<p>&nbsp;<a name=auto></a>
+<p>&nbsp;<b><i>C. Automobile Manufacturing Model [AB]</i></b>
+
+<p>The automobile is perhaps the most important invention second only to electricity in the 20th century. It has changed life of man in a way unimaginable before its invention. "The world travels on wheels" is the buzzword of the 20th century. The manufacturing of these automobiles is both a fascinating and challenging task. The simulation team has simulated the manufacturing process of wagons, sedans and convertibles in a Toyota car plant.
+<p>The following is the step by step procedure for the manufacturing of cars in the "Toyota Production System":
+<ol type=1>                    
+<li>The manufacturing process begins with the chassis assembly. The chassis is the skeleton of the car. It is the part on which the car is built.
+<li>Axle and tires are fitted to the chassis assembly. 
+<li>In the next stage, the engine is fitted to the chassis. The engine is the power-producing component of the car. The power produced in the engine is use to propel the car. Engines are mostly of the internal combustion type.
+<li>The gearbox is then fitted into the chassis. The gearbox is the component that is used to change the speed supplied to the wheels.
+<li>The next stage involves the fitting of the radiator into the engine. The radiator helps in cooling the engine, transmitting the excess heat to the surrounding by conduction. 
+<li>The seats are then fitted to the car in the next stage.
+<li>The battery is then fitted and electrical connections are carried out. The electrical connections connect the various components of the car to the battery. 
+<li>The body of the car is then fitted on the chassis. 
+<li>The windshield, doors, and wipers are fitted to the car along with the bonnet. 
+<li>The finishing touches are carried out on the car. 
+<li>The car is then sent for inspection and testing after which it is taken to the parking lot and kept ready for shipping. 
+</ol>Below is a block diagram describing the manufacturing flow.
+<p>
+<center><IMG SRC="u-flow.jpg" HEIGHT=250 WIDTH=775></center>
+<p><center><b>U-Flow in Automobile Manufacturing</b></center>
+<p>
+The student version of the model limited the number of blocks to be used. The challenge was to use the limited number of blocks available without simplifying the process. For this purpose <i>Sets</i> were used along with <i>Attributes</i> such as "Work time" and "Op time."                           
+Given below is a brief explanation of attributes, variables, sets and counters used in the model.
+<p>
+<b>Attributes</b> 
+<ol type=1>
+<li>Worktime: If the job arriving at the workstation is a Hardtop or a Wagon it is delayed by the duration given in the work time attribute of the delay block.
+<li>Optime (operation time): If the job arriving at the workstation is a Sedan it is delayed by the duration given in the Op time attribute of the delay block.
+<li>Setindex: Corresponds to a specific workstation in the set of stations. 
+<li>Timein (time in): Denotes the time at which a job arrived in the system.
+<li>Jobtype (type of job): Denotes that the type of job is a hardtop, wagon or sedan.
+</ol>
+<b>Sets</b>
+<ol type=1>
+<li>Queueset: Signifies all the queues along the main assembly line, which are sequentially visited by the job.
+<li>Stationset: Corresponds to all the stations along the main assembly line, which are sequentially attended by the job.
+<li>Resourceset: Denotes all the resources along the main assembly line, which are sequentially attended by the job.
+</ol>
+<b>Counters</b> 
+<ol type=1>
+<li>Wagons: Number of wagons produced
+<li>Hardtops: Number of hardtops produced
+<li>Sedans: Number of Sedans produced
+<li>Total cars: Total number of cars produced
+</ol>
+<b>Variables</b>
+<br>
+Every job is delayed at the workstation for a specific duration. This is obtained by fitting the historical data in the input analyzer. In the manufacturing model case the duration of the delay is LOGNORMAL with a mean and standard deviation. Since there are three different types of jobs with different delays, a variable array is defined with constants for the distribution. Each constant in the array signifies a part of the operand for a specific job in the delay block. The following three constants have been defined: 
+<ol type =1>   
+<li>Mean 
+<li>C
+<li>Std
+</ol>
+
+<p><a href=contents.html> Back to Table of Contents</a>
+
+
+<p>
+<p>&nbsp;<a name=trans></a>
+<p>&nbsp;<b><i>D. Transportation Model [AT]</i></b>
+
+<p>For any organization having several manufacturing facilities, and a huge and spread market, transportation remains an inevitable part of its total system.
+The transportation model developed by the simulation team serves as a guideline to study how automobiles manufactured at a particular facility are transported to various places.
+<p>
+Following is a brief procedure on how this transportation takes place:
+<ol type=1>
+<li>At first all the cars are accumulated in a huge parking lot, which also serves as a loading area for the trucks that carry these cars.
+<li>Once the specified number of cars is available, they are loaded on to the trucks as per the capacity of the trucks.
+<li>These trucks then transport the vehicles to the specified destination, such as a dock, where all these trucks are then handed over to a distributor.
+<li>At the dock, the vehicles are unloaded from the trucks, and then loaded onto a ship. 
+<li>Once the ship is loaded to its capacity, it is then directed to its destination, which may be other countries, or within the nation, but to different states.
+</ol>
+The block diagram below, explains how the flow of the automobiles takes place once manufactured, to the time they are delivered to their final destination.
+
+<p>
+<center><IMG SRC="trans.jpg" HEIGHT=175 WIDTH=725></center>
+<p><center><b>Transportation of Manufactured Cars</b></center>
+
+<p>The attributes, variables, sequences, etc. that are used in the model are explained below:
+<p>
+<b>Attributes:</b> Time-In is the only attribute used in the model, which determines what time the car entered the system, for how long it was in the system.<br>
+<b>Schedules:</b> This element describes the schedules for the resources, when they are available and when they are not.<br>
+<b>Counters:</b> Counts the total number cars that are transported during the specified time.<br>
+<b>Transporters:</b> There are two types of transporters, Trucks and Ship, which are being used in this model.
+
+<p><a href=contents.html> Back to Table of Contents</a>
+
+</body></html>
